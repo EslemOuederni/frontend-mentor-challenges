@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+body{
+    background-image: url('/images/bg-pattern-desktop.svg');
+    background-size: cover;
+    background-position: center center;
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0;
+    
+}
+.container{
+    display: flex;
+    min-height: 100vh;
+}
+
+.logo{
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+.bg-mobile{
+    display: none;
+}
+.weare{
+    color:hsl(0, 36%, 70%);
+    font-weight: 300;
+}
+h1{
+color:  hsl(0, 6%, 24%);
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 8px;
+line-height: 1.2;
+margin-bottom: 0;
+font-size: 50px;
+transform: translateX(-100%);
+animation: comeinleft 0.5s ease forwards;
+}
+
+p{
+    color:hsl(0, 36%, 70%);
+    font-weight: 400;
+    margin: 40px 0;
+    line-height: 1.6;
+
+}
+.left{
+    width: 60%;
+    padding: 0 100px;
+}
+.inner-container{
+    max-width: 400px;
+}
+.right{
+    width: 40%;
+   
+}
+.image{
+    max-width: 100%;
+    background-image: url('/images/hero-desktop.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+form{
+    position: relative;
+
+}
+input{
+    background-color: transparent;
+    border: 1px solid hsl(0, 36%, 70%);
+    width: 100%;
+    height: 53px;
+    padding: 15px 20px;
+    border-radius: 50px ;
+}
+input::placeholder{
+    color: hsl(0, 36%, 70%);
+}
+input:focus{
+    box-shadow: 1px 0px 10px hsl(0, 36%, 70%);
+    outline: none;
+}
+form.error input{
+    border: 2px solid hsl(0, 93%, 68%);
+}
+button{
+      background-image: linear-gradient(135deg,
+     hsl(0, 80%, 86%),
+      hsl(0, 74%, 74%));
+      border: none;
+      border-radius: 50px;
+      width: 90px;
+      padding: 15px;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+}
+button:hover{
+    opacity: 0.8;
+}
+.error-icon{
+    display: none;
+    position: absolute;
+    top:14px;
+    right: 110px;
+}
+form.error .error-icon{
+    display: block;
+}
+small{
+    color: hsl(0, 93%, 68%);
+    display: none;
+    padding: 25px;
+    margin-bottom: 60px;
+}
+form.error small{
+    display: block;
+}
+/*animations */
+@keyframes comeinleft {
+    to{
+        transform: translateX(0);
+    }
+}
+/* responsive mobile */
+@media (max-width: 800px){
+    .bg-mobile{
+        display: block;
+     
+        margin-left: -100px;
+        margin-right: -100px;
+        width: calc(100% + 200px);
+    }
+    .logo{
+        margin: 30px 0;
+        text-align: left;
+        width: 50%;
+    }
+    .right{
+        display: none;
+    }
+    .left{
+        width: 100%;
+        margin-top: 30px;
+    }
+    h1{
+        font-size: 40px;
+        text-align: center;
+
+    }
+    form{
+        margin-bottom: 50px;
+    }
+}
