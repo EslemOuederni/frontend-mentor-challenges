@@ -4,10 +4,9 @@
     box-sizing: border-box;
 }
 body{
-
-    background-image: url("./images/bg-intro-desktop.png");
+    background-color: hsl(0, 100%, 74%);
+    background-image: url("/intro-component-with-signup-form-master/images/bg-intro-desktop.png");
     background-position: center;
-    /* background-color: hsl(0, 100%, 74%); */
     font-family: 'Poppins', sans-serif;
 }
 h1{
@@ -152,6 +151,9 @@ button:active{
 
 /* media query */
 @media (max-width: 760px){
+    body{
+        background-image: url("/intro-component-with-signup-form-master/images/bg-intro-mobile.png");
+    }
     .container{
         display: flex;
         justify-content: center;
