@@ -5,7 +5,7 @@
 }
 body{
     background-color: hsl(0, 100%, 74%);
-    background-image: url("/intro-component-with-signup-form-master/images/bg-intro-desktop.png");
+    background-image: url("./intro-component-with-signup-form-master/images/bg-intro-desktop.png");
     background-position: center;
     font-family: 'Poppins', sans-serif;
 }
@@ -157,21 +157,23 @@ button:active{
     .container{
         display: flex;
         justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+
     }
     h1{
         text-align: center;
         font-size: 40px;
     }
     .left{
+        text-align: center;
+    }
+    .box{
         justify-content: center;
         text-align: center;
-        margin-left: auto;
-        margin-right: auto;
     }
     form{
-        max-width: 100vw;
-        overflow: hidden;
-
+         overflow: hidden;
     }
     #p-left{
         text-align: center;
@@ -179,6 +181,6 @@ button:active{
         margin-left: auto;
         margin-right: auto;
         font-size: 14px;
-        max-width: 90%;
+        max-width: 70%;
     }
 }
