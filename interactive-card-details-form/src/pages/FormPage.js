@@ -5,12 +5,13 @@ import { CardBack } from "../components/CardBack";
 export const FormPage = () => {
   return (
     <div className="white-bg">
-      <div className="ml-32">
+      <div className="md:ml-32">
         <div className="mb-4">
           <Input
             name="CARDHOLDER NAME"
             type="text"
             placeholder="e.g. Jane Appleseed"
+            style="w-4/5 md:w-80"
           />
         </div>
         <div className="mb-4">
@@ -18,10 +19,11 @@ export const FormPage = () => {
             name="CARD NUMBER"
             type="number"
             placeholder="e.g. Jane Appleseed"
+            style="w-4/5 md:w-80"
           />
         </div>
       </div>
-      <div className="flex flex-row ml-32">
+      <div className="flex flex-row md:ml-32">
         <div>
           <Input
             name="EXP. DATE "
