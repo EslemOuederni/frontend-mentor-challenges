@@ -6,18 +6,27 @@ import { FormPage } from "./FormPage";
 
 export const Home = () => {
   return (
-    <div className="flex flex-row home">
-      <div className="bg-desktop w-80">
-        <div className="ml-24 mt-12">
+    <div className="flex flex-col items-center overflow-hidden md:flex-row md:home">
+      <div className="bg-mobile md:hidden">
+        <div className=" ml-8 mt-2 mt-4 scale-75 top-6">
+          <CardBack />
+        </div>
+        <div className=" pt-20 mt-0 scale-75 float-left md:ml-24 md:mt-24">
           <Card />
         </div>
-        <div className="ml-12 mt-16 ">
+      </div>
+      {/* desktop */}
+      <div className="hidden md:block bg-desktop w-80">
+        <div className=" ml-2 pt-20 mt-0 md:ml-24 md:mt-24">
+          <Card />
+        </div>
+        <div className="ml-12 mt-2  top-6">
           <CardBack />
         </div>
       </div>
-      <div className=" ml-40">
+      <div className=" ml-2 md:ml-40">
         <FormPage />
-        <button className=" bg-secondary-400 text-secondary-200 w-80 ml-32 mt-6 p-2 rounded-md">
+        <button className=" bg-secondary-400 text-secondary-200 w-80 md:ml-32 mt-6 p-2 rounded-md">
           Confirm
         </button>
       </div>
