@@ -5,7 +5,7 @@ export const Input = ({ name, type, placeholder, style }) => {
     <div className="flex flex-col">
       <label
         for={name}
-        className="w-auto text-secondary-400 font-medium tracking-widest mr-2 mb-2"
+        className="md:w-auto text-secondary-400 font-medium tracking-widest mr-2 mb-2"
       >
         {name}
       </label>
@@ -14,7 +14,7 @@ export const Input = ({ name, type, placeholder, style }) => {
         name={name}
         id={name}
         placeholder={placeholder}
-        className={`p-2 border border-gray-400 w-80 rounded-md ${style}`}
+        className={`p-2 border border-secondary-200 :w-80 rounded-md ${style}`}
       />
     </div>
   );
