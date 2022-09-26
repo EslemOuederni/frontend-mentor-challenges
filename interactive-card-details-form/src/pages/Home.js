@@ -26,9 +26,6 @@ export const Home = () => {
       </div>
       <div className=" ml-2 md:ml-40">
         <FormPage />
-        <button className=" bg-secondary-400 text-secondary-200 w-80 md:ml-32 mt-6 p-2 rounded-md">
-          Confirm
-        </button>
       </div>
     </div>
   );
