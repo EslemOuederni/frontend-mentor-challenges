@@ -1,42 +1,59 @@
 import React from "react";
 import { Input } from "../components/Input";
 import { useState } from "react";
-export const FormPage = () => {
+import { useNavigate } from "react-router-dom";
+export const FormPage = ({ cardN, cvcN }) => {
+  const [cardNumber, setCardNumber] = useState("");
   const [num, setNum] = useState(true);
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [cvc, setCVC] = useState("");
+  const [invalid, setInvalid] = useState("");
+  const [firstName, setFirstName] = useState("");
+
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
-    let number = event.target.value;
-    console.log(!isNaN(Number(event.target.value)));
     if (isNaN(Number(event.target.value))) {
       setNum(false);
     } else {
       setNum(true);
+      setCardNumber(event.target.value);
+      console.log(cardNumber);
     }
   };
   const handleEmptyMonth = (event) => {
     if (event.target.value === "") {
       setMonth("not empty");
     } else {
-      setMonth("");
+      setMonth(event.target.value);
     }
   };
   const handleEmptyYear = (event) => {
     if (event.target.value === "") {
       setYear("not empty");
     } else {
-      setYear("");
+      setYear(event.target.value);
     }
   };
   const handleEmptyCVC = (event) => {
     if (event.target.value === "") {
-      setYear("not empty");
+      setCVC("not empty");
     } else {
-      setYear("");
+      setCVC(event.target.value);
     }
   };
+  const handleCard = () => {
+    if (cvc && year && month) {
+      navigate("/cardDetails", {
+        firstName: firstName,
+        cardNumber: cardNumber,
+      });
+    } else {
+      console.log("no");
+    }
+  };
+
   return (
     <div className="white-bg">
       <div className="md:ml-32">
@@ -46,6 +63,10 @@ export const FormPage = () => {
             type="text"
             placeholder="e.g. Jane Appleseed"
             style="w-4/5 md:w-80"
+            onChange={(event) => {
+              setFirstName(event.target.value);
+            }}
+            value={firstName}
           />
         </div>
         <div className="mb-4">
@@ -54,6 +75,7 @@ export const FormPage = () => {
             placeholder="e.g. Jane Appleseed"
             style="w-4/5 md:w-80"
             onChange={handleChange}
+            value={cardNumber}
           />
         </div>
         {num ? (
@@ -73,10 +95,10 @@ export const FormPage = () => {
             style="mr-px w-14 "
             onChange={handleEmptyMonth}
           />
-          {month === "" ? (
+          {month != "" ? (
             ""
           ) : (
-            <span className="text-sm text-primary-100">can't be blank</span>
+            <span className="text-sm text-primary-100">{invalid}</span>
           )}
         </div>
         <div className="mb-2">
@@ -87,10 +109,10 @@ export const FormPage = () => {
             style="w-14 "
             onChange={handleEmptyYear}
           />
-          {year === "" ? (
+          {year != "" ? (
             ""
           ) : (
-            <span className="text-sm text-primary-100">can't be blank</span>
+            <span className="text-sm text-primary-100">{invalid}</span>
           )}
         </div>
         <div>
@@ -101,13 +123,19 @@ export const FormPage = () => {
             style="w-32 ml-2"
             onChange={handleEmptyCVC}
           />
-          {cvc === "" ? (
+          {cvc != "" ? (
             ""
           ) : (
-            <span className="text-sm text-primary-100">can't be blank</span>
+            <span className="text-sm text-primary-100">{invalid}</span>
           )}
         </div>
       </div>
+      <button
+        className=" bg-secondary-400 text-secondary-200 w-80 md:ml-32 mt-6 p-2 rounded-md"
+        onClick={handleCard}
+      >
+        Confirm
+      </button>
     </div>
   );
 };
