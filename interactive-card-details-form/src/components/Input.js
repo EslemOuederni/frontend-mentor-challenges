@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Input = ({ name, type, placeholder, style, onChange }) => {
+export const Input = ({ name, type, placeholder, style, onChange, value }) => {
   return (
     <div className="flex flex-col">
       <label
@@ -16,6 +16,7 @@ export const Input = ({ name, type, placeholder, style, onChange }) => {
         placeholder={placeholder}
         onChange={onChange}
         className={`p-2 border border-secondary-200 :w-80 rounded-md ${style} focus:border-secondary-300 focus:outline-none invalid:border-secondary-500`}
+        value={value}
       />
     </div>
   );
