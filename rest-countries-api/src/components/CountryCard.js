@@ -6,13 +6,9 @@ export const CountryCard = ({
   population,
   region,
   capital,
-  handleClick,
 }) => {
   return (
-    <div
-      className=" w-60 h-80 bg-lightMode-100 shadow-md ml-12 mb-12 rounded-md cursor-pointer"
-      onClick={handleClick}
-    >
+    <div className=" w-60 h-80 bg-lightMode-100 shadow-md ml-12 mb-12 rounded-md cursor-pointer">
       <div className="img mb-2 overflow-hidden">
         <img src={flag} alt="" className="flag border-inherit" />
       </div>
