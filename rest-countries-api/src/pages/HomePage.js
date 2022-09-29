@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { CountryCard } from "../components/CountryCard";
 import { DropDown } from "../components/DropDown";
 import { NavBar } from "../components/NavBar";
@@ -8,7 +8,6 @@ import { SearchBox } from "../components/SearchBox";
 export const HomePage = () => {
   const [darkToggle, setDarkToggle] = useState(false);
   const [countries, setCountries] = useState([]);
-  const navigation = useNavigate();
   const url = "https://restcountries.com/v2/all?limit=10";
 
   useEffect(() => {
