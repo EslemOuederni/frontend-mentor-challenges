@@ -8,11 +8,16 @@ import { SearchBox } from "../components/SearchBox";
 export const HomePage = () => {
   const [darkToggle, setDarkToggle] = useState(false);
   const [countries, setCountries] = useState([]);
+  const [getCountry, setGetCountry] = useState("");
   const url = "https://restcountries.com/v2/all?limit=10";
 
   useEffect(() => {
     try {
-      fetchData();
+      if (getCountry === "") {
+        fetchData();
+      } else {
+        getCountryData();
+      }
     } catch (error) {
       console.log(error);
     }
@@ -20,9 +25,24 @@ export const HomePage = () => {
   const fetchData = async () => {
     const response = await fetch(url);
     const data = await response.json();
-    setCountries(data.slice(1, 20));
+    setCountries(data);
   };
 
+  // Getting Data for specific country
+  const getCountryData = async () => {
+    try {
+      let res = await fetch(`https://restcountries.com/v2/name/${getCountry}`);
+      let data = await res.json();
+      //setCountries(data);
+      if (data.length >= 1) {
+        setCountries(data);
+      } else {
+        setCountries([]);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div className={`content ${darkToggle && " bg-darkMode-200"}`}>
       <NavBar
@@ -35,6 +55,7 @@ export const HomePage = () => {
           <div className="">
             <SearchBox
               dark={`${darkToggle && " bg-darkMode-100 text-darkMode-100"}`}
+              handleSearch={(term) => setGetCountry(term)}
             />
           </div>
           <div className="">
